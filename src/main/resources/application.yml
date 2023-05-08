@@ -1,0 +1,24 @@
+server:
+  port: 8899
+spring:
+  thymeleaf:
+    cache: false
+  application:
+    name: oauth2-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/oauth?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据源其他配置, 在 DruidConfig配置类中手动绑定 initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+  redis:
+    port: 6379
+    host: 127.0.0.1
+    connect-timeout: 50000
